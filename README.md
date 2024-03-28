@@ -1,6 +1,8 @@
 # Whastapp BOT AI OpenAI & Gemini (Node)
 
  Whatsapp Bot AI Node Project integrated by OpenAI and Gemini. 
+
+<img src="./Screenshoot.jpg" />
  
 ## Installation
 ```sh
