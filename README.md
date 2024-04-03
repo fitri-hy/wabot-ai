@@ -77,6 +77,35 @@ bot.start()
 <br>
 Official Site Gemini: <a href="https://aistudio.google.com/">https://aistudio.google.com</a></p>
 
+## Ads Ons
+Add the translation feature, before starting you need to run the <a href="https://github.com/fitri-hy/api-translate-express.git">Translate Express API</a> server first.
+
+```
+// add endpoint url
+const ApiTranslate = 'http://localhost:5000/translate?text='; // your translate endpoint api
+
+// add perfix translate on bot
+if (cmd.startsWith('.id-en')) { // indonesia to english
+    const messageToProcess = cmd.replace('.id-en', '').trim();
+    const response = await fetch(`${ApiTranslate}${encodeURIComponent(messageToProcess)}&from=id&to=en`)
+        .then((res) => res.json())
+        .then((data) => data.translation);
+    sock.sendMessage(result.remoteJid, {
+        text: response
+    });
+}
+if (cmd.startsWith('.en-id')) { // english to indonesia
+    const messageToProcess = cmd.replace('.en-id', '').trim();
+    const response = await fetch(`${ApiTranslate}${encodeURIComponent(messageToProcess)}&from=en&to=id`)
+        .then((res) => res.json())
+        .then((data) => data.translation);
+    sock.sendMessage(result.remoteJid, {
+        text: response
+    });
+}
+```
+Discover more languages <a href="https://www.ibm.com/docs/en/cognos-controller/10.4.2?topic=codes-language">Click Here</a>
+
 Don't forget to give stars
 
 Follow Me: <a href="https://hy-tech.my.id/docs">FOLLOW</a>
