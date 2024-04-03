@@ -87,7 +87,7 @@ const ApiTranslate = 'http://localhost:5000/translate?text='; // your translate 
 // add perfix translate on bot
 if (cmd.startsWith('.id-en')) { // indonesia to english
     const messageToProcess = cmd.replace('.id-en', '').trim();
-    const response = await fetch(`${ApiTranslate}${encodeURIComponent(messageToProcess)}&from=id&to=en`)
+    const response = await fetch(`${ApiTranslate}${encodeURIComponent(messageToProcess)}&from=id&to=en`) // adjust language code
         .then((res) => res.json())
         .then((data) => data.translation);
     sock.sendMessage(result.remoteJid, {
@@ -96,7 +96,7 @@ if (cmd.startsWith('.id-en')) { // indonesia to english
 }
 if (cmd.startsWith('.en-id')) { // english to indonesia
     const messageToProcess = cmd.replace('.en-id', '').trim();
-    const response = await fetch(`${ApiTranslate}${encodeURIComponent(messageToProcess)}&from=en&to=id`)
+    const response = await fetch(`${ApiTranslate}${encodeURIComponent(messageToProcess)}&from=en&to=id`) // adjust language code
         .then((res) => res.json())
         .then((data) => data.translation);
     sock.sendMessage(result.remoteJid, {
